@@ -14,16 +14,24 @@ function addBookToLibrary(book) {
 
 function updateCards() {
 	container.innerHTML = myLibrary.reduce(
-		(text, book) =>
+		(text, book, index) =>
 			text +
 			`<div class="card">
-				<div class="title">Title: ${book.title}</div>
-				<div class="author">Author: ${book.author}</div>
-				<div class="pages">Pages: ${book.pages}</div>
-				<div class="read">Read: ${book.read}</div>
+				<div class="title"><span class="label">Title</span>${book.title}</div>
+				<div class="author"><span class="label">Author</span>${book.author}</div>
+				<div class="pages"><span class="label">Pages</span>${book.pages}</div>
+				<div class="read"><span class="label">Read</span>${book.read}</div>
+				<button class="delete" onClick="deleteItem(${index})">Delete</button>
 			</div>`,
 		""
 	);
+}
+
+function deleteItem(index) {
+	if (!window.confirm("Are you sure you want to delete this item?")) return;
+
+	myLibrary.splice(index, 1);
+	updateCards();
 }
 
 addBookToLibrary(new Book("Redwine Supernova", "Chapell Roan", 28, true));

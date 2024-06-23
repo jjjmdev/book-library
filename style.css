@@ -27,4 +27,40 @@ body {
 	padding: 20px;
 	background-color: white;
 	border-radius: 20px;
+	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.card > * {
+	display: flex;
+	flex-direction: column;
+
+	&:not(:last-child) {
+		margin-bottom: 1rem;
+	}
+}
+
+.card span {
+	font-size: 12px;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+button.delete {
+	outline: none;
+	border: 0;
+	background-color: red;
+	color: white;
+	text-transform: uppercase;
+	padding: 12px;
+	border-radius: 12px;
+	cursor: pointer;
+
+	align-self: end;
+
+	&:hover {
+		opacity: 0.7;
+	}
 }
