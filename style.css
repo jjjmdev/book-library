@@ -14,13 +14,16 @@ body {
 }
 
 .container {
+	width: 900px;
+	margin-top: 2rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.card-container {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 	gap: 20px;
-	width: 900px;
-	margin-top: 1rem;
-	margin-left: auto;
-	margin-right: auto;
 }
 
 .card {
@@ -48,19 +51,28 @@ body {
 	font-weight: bold;
 }
 
-button.delete {
+button {
 	outline: none;
 	border: 0;
-	background-color: red;
 	color: white;
+	background-color: blue;
 	text-transform: uppercase;
 	padding: 12px;
 	border-radius: 12px;
 	cursor: pointer;
+}
+
+button.delete {
+	background-color: red;
 
 	align-self: end;
 
 	&:hover {
 		opacity: 0.7;
 	}
+}
+
+button.add {
+	background-color: blue;
+	margin-top: 2rem;
 }

@@ -1,5 +1,6 @@
 const myLibrary = [];
-const container = document.querySelector(".container");
+const cardContainer = document.querySelector(".card-container");
+const addButton = document.querySelector(".add");
 
 function Book(title, author, pages, read) {
 	this.title = title;
@@ -13,7 +14,7 @@ function addBookToLibrary(book) {
 }
 
 function updateCards() {
-	container.innerHTML = myLibrary.reduce(
+	cardContainer.innerHTML = myLibrary.reduce(
 		(text, book, index) =>
 			text +
 			`<div class="card">
@@ -31,6 +32,18 @@ function deleteItem(index) {
 	if (!window.confirm("Are you sure you want to delete this item?")) return;
 
 	myLibrary.splice(index, 1);
+	updateCards();
+}
+
+addButton.addEventListener("click", () => addItem());
+
+function addItem() {
+	const title = prompt("Please enter the title of the book.");
+	const author = prompt("Please enter the name of the author.");
+	const pages = prompt("How many pages are there?");
+	const read = Boolean(prompt("Have you read it yet? Y/N", "Y"));
+
+	addBookToLibrary(new Book(title, author, pages, read));
 	updateCards();
 }
 
